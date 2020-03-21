@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+<variable
+    name="viewmodel"
+    type="xyz.xeonel.reactionvideomaker.viewmodel.RecordViewModel"/>
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.RecordActivity">
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/simpleExoPlayerView"
+        android:layout_width="292dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:buffered_color="#E98CFA"
+        app:keep_content_on_player_reset="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:played_color="#7542f5"
+        app:unplayed_color="#E80B0B"></com.google.android.exoplayer2.ui.PlayerView>
+
+    <com.camerakit.CameraKitView
+        android:id="@+id/cameraView"
+        android:layout_width="291dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:adjustViewBounds="true"
+        android:keepScreenOn="true"
+        app:camera_facing="front"
+        app:camera_focus="continuous"
+        app:camera_permissions="camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simpleExoPlayerView"
+        app:layout_constraintVertical_bias="0.013"></com.camerakit.CameraKitView>
+
+    <ImageButton
+        android:id="@+id/switchCameraButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="@{() -> viewmodel.switchCamera()}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cameraView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        app:srcCompat="@android:drawable/ic_popup_sync" />
+
+    <ImageButton
+        android:id="@+id/recordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cameraView"
+        app:layout_constraintTop_toBottomOf="@+id/switchCameraButton"
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,2 @@
+rootProject.name='ReactionVideoMaker'
+include ':app'
