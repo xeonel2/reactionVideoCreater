@@ -55,6 +55,7 @@ class RecordActivity : AppCompatActivity() {
 
         uri = intent.extras!!["VideoURI"] as Uri
         file = File(getExternalFilesDir(null), "" + Timestamp(System.currentTimeMillis()).time + ".mp4")
+        FFMpegHelper.getInstance().createConcatableVideo(file!!)
 //        outputStream = FileOutputStream(file)
 
         //Getting Exoplayer ready for playback

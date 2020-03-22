@@ -23,10 +23,11 @@ class FFMpegHelper {
 
     fun getCompleteRecording(context: Context) : File? {
         val concatFile = getTempListFile(context)
-        val command = "-f concat -i ".
+        val command = "-f concat -safe 0 -i ".
             plus(concatFile).
             plus(" -c copy ").
             plus(concatOutput?.absolutePath)
+        Log.d("Video", "Exocuting command :$command")
         var result = FFmpeg.execute(command)
         if (result == Config.RETURN_CODE_SUCCESS) {
             return concatOutput!!
@@ -55,8 +56,8 @@ class FFMpegHelper {
             }
         }
 
-        Log.d("VideoConcat", "Wrote list file to " + list.getAbsolutePath())
-        return list.getAbsolutePath()
+        Log.d("VideoConcat", "Wrote list file to " + list.absolutePath)
+        return list.absolutePath
     }
 
 
