@@ -38,52 +38,23 @@ class FFMpegHelper {
         }
     }
 
-    fun getVideoWithReactionOverlay(context: Context, primaryUri: Uri, secondaryUri: Uri) {
+    fun getVideoWithReactionOverlay(context: Context, primaryUri: Uri, secondaryUri: Uri) : File {
 
         val primaryFile = getFileFromURI(context, primaryUri)
         val secondaryFile = File(secondaryUri.path)
 
-        //Scaling both the videos
-//        ffmpeg -i input.jpg -vf scale=w=320:h=240:force_original_aspect_ratio=decrease output_320.png
-
-        val primaryScaled = createTempFile("tempscaled", ".mp4", context.getExternalFilesDir(null))
-        val secondaryScaled = createTempFile("tempscaled", ".mp4", context.getExternalFilesDir(null))
         val superImposed = createTempFile("Overlaid", ".mp4", context.getExternalFilesDir(null))
 
-//        var command = "-y -i ".
-//            plus(primaryFile.absolutePath).
-//            plus(" -vf scale=w1280:h=920 ").
-//            plus(primaryScaled.absolutePath)
-//        Log.d("Video", "Exocuting command :$command")
-//        var result = FFmpeg.execute(command)
-//
-//
-//
-//        command = "-y -i ".
-//            plus(secondaryFile.absolutePath).
-//            plus(" -vf scale=w320:h=240 ").
-//            plus(secondaryScaled.absolutePath)
-//        Log.d("Video", "Exocuting command :$command")
-//        result = FFmpeg.execute(command)
-//
-//        command = "-y -i ".
-//            plus(primaryScaled.absolutePath).
-//            plus(" -vf \"movie=").
-//            plus(secondaryScaled.absolutePath).
-//            plus(";[in][inner] overlay=70:70 [out]\" ").
-//            plus(superImposed.absolutePath)
-//        Log.d("Video", "Exocuting command :$command")
-//        result = FFmpeg.execute(command)
 
         var command = "-y -i ".
             plus(primaryFile.absolutePath).
             plus(" -vf \"movie=").
             plus(secondaryFile.absolutePath).
-            plus(", scale=200:200 [inner]; [in][inner] overlay=2:70 [out]\" ").
+            plus(", scale=200:200 [inner]; [in][inner] overlay=10:main_h-overlay_h-10 [out]\" ").
                 plus(superImposed.absolutePath)
         Log.d("Video", "Exocuting command :$command")
         var result = FFmpeg.execute(command)
-
+        return superImposed.absoluteFile
     }
 
     private fun getTempListFile(context: Context) : String {

@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ReactionPlaybackActivity">
+    tools:context=".view.ReactionPlaybackActivity" >
 
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/reactionExoplayerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:buffered_color="#E98CFA"
+        app:keep_content_on_player_reset="false"
+        app:played_color="#7542f5"
+        app:unplayed_color="#E80B0B"></com.google.android.exoplayer2.ui.PlayerView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,6 @@ import xyz.xeonel.reactionvideomaker.helper.ExoplayerHelper
 import xyz.xeonel.reactionvideomaker.helper.FFMpegHelper
 import xyz.xeonel.reactionvideomaker.viewmodel.RecordViewModel
 import java.io.File
-import java.io.FileOutputStream
 import java.sql.Timestamp
 
 

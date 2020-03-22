@@ -1,7 +1,6 @@
 package xyz.xeonel.reactionvideomaker.helper
 
 import android.content.Context
-import android.net.Uri
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.ExoPlayer
@@ -9,6 +8,7 @@ import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import android.net.Uri
 
 class ExoplayerHelper {
 
