@@ -32,7 +32,7 @@
         app:played_color="#7542f5"
         app:unplayed_color="#E80B0B"></com.google.android.exoplayer2.ui.PlayerView>
 
-    <com.camerakit.CameraKitView
+    <com.otaliastudios.cameraview.CameraView
         android:id="@+id/cameraView"
         android:layout_width="291dp"
         android:layout_height="289dp"
@@ -42,15 +42,15 @@
         android:layout_marginBottom="24dp"
         android:adjustViewBounds="true"
         android:keepScreenOn="true"
-        app:camera_facing="front"
-        app:camera_focus="continuous"
-        app:camera_permissions="camera"
+        app:cameraFacing="front"
+        app:cameraMode="video"
+        app:cameraRequestPermissions="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/simpleExoPlayerView"
-        app:layout_constraintVertical_bias="0.013"></com.camerakit.CameraKitView>
+        app:layout_constraintVertical_bias="0.013"></com.otaliastudios.cameraview.CameraView>
 
     <ImageButton
         android:id="@+id/switchCameraButton"
@@ -76,6 +76,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="108dp"
+        android:onClick="@{() -> viewmodel.toggleRecording()}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cameraView"

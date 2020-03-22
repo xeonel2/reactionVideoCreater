@@ -1,19 +1,14 @@
 package xyz.xeonel.reactionvideomaker.viewmodel
 
-import android.icu.text.AlphabeticIndex
-import android.view.View
-import androidx.databinding.Bindable
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.camerakit.CameraKitView
-import kotlinx.android.synthetic.main.activity_record.*
-import xyz.xeonel.reactionvideomaker.view.RecordActivity
 
 class RecordViewModel : ViewModel() {
-    private val _recordingState = MutableLiveData<RecordingState>()
-    val recordingState : LiveData<RecordingState>
-        get() = _recordingState
+//    private val _recordingState = MutableLiveData<RecordingState>()
+//    val recordingState : LiveData<RecordingState>
+//        get() = _recordingState
 
     private val _isRecording = MutableLiveData<Boolean>()
     val isRecording : LiveData<Boolean>
@@ -43,6 +38,10 @@ class RecordViewModel : ViewModel() {
         if (isRecording.value!!) {
             _completedRecording.value = true
         }
+    }
+
+    fun toggleRecording() {
+        _isRecording.value = !(_isRecording.value!!)
     }
 
 }
