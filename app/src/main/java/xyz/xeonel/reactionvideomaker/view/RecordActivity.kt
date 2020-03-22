@@ -29,10 +29,8 @@ class RecordActivity : AppCompatActivity() {
     lateinit var uri : Uri
     private var camera: CameraView? = null
     lateinit var player : ExoPlayer
-//    lateinit var outputStream : FileOutputStream
     var file : File? = null
     lateinit var callbackHandler : ExoplayerCallbackHandler
-//    var tempFile =
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,15 +93,6 @@ class RecordActivity : AppCompatActivity() {
             Log.v("VideoMaker", "Finished Recording")
 
             camera?.stopVideo()
-//            outputStream.flush()
-//            file = FFMpegHelper.getInstance().getCompleteRecording()
-//            player.release()
-//            // Next screen
-//            Log.v("VideoMaker", "Finished Recording Recording URI: $file")
-//            val reactionPlaybackActivity = Intent(this, ReactionPlaybackActivity::class.java)
-//            reactionPlaybackActivity.putExtra("VideoURI", uri)
-//            reactionPlaybackActivity.putExtra("RecordedFileURI", Uri.parse(file.toString()))
-//            startActivity(reactionPlaybackActivity)
             }
         })
 
